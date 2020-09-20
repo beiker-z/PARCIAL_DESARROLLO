@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
     password: ''
   }
 
-  constructor(private security:SecurityService) { }
+  constructor(private security: SecurityService) { }
 
   ngOnInit(): void {
   }
