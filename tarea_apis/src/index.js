@@ -1,5 +1,7 @@
 const express=require('express');
 const app= express();
+const cors= require('cors');
+app.use(cors());
 
 app.set('port',process.env.PORT || 3000);
 
@@ -18,5 +20,5 @@ app.get('/',(req,res)=>{
 );
 
 app.listen(app.get('port'),()=>{
-console.log('liaten port 3000');
+console.log('listen port 3000');
 });

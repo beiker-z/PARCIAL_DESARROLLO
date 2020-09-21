@@ -3,8 +3,11 @@ const router= express.Router();
 const mysqlConnection= require('../db/database');
 const jwt=require('jsonwebtoken');
 
+
+
 router.post("/login",(req, res)=>{
 
+  
     const body= req.body;
     console.log(body.userName);
     let user;

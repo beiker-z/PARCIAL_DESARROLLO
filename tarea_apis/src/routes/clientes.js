@@ -35,7 +35,7 @@ router.get('/clientes/:id',security,(req,res)=>{
     });
 });
 
-router.post('/clientes',security,(req,res)=>{
+router.post('/clientes/add',security,(req,res)=>{
 
     let mp=req.body;
 

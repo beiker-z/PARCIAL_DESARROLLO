@@ -5,6 +5,7 @@ const mysqlConnection=require('../db/database');
 const security=require('../security/verifier');
 
 
+
 router.get('/empleados',security,(req,res)=>{
 mysqlConnection.query('SELECT * FROM empleados',(err,rows,fields)=>{
 

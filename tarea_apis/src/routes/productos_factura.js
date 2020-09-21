@@ -6,6 +6,7 @@ const security=require('../security/verifier');
 
 
 
+
 router.get('/facturas/:id/productos',security,(req,res)=>{
 
     const emp=req.params;
@@ -42,7 +43,7 @@ router.post('/facturas/:id/detalle',security,(req, res) =>{
 
 router.delete('/facturas/:id/:idproducto',security,(req,res)=>{
 let factura_id = req.params.id;
-let producto_id = req.params.id_producto;
+let producto_id = req.query.id_producto;
     mysqlConnection.query('DELETE FROM productos_facturas WHERE factura_id = ? AND producto_id = ?',
         [factura_id, producto_id], (error,result) => {
             if (!error) {

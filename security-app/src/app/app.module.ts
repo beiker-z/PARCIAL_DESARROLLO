@@ -7,13 +7,16 @@ import { ClientesComponent } from './private/clientes/clientes.component';
 import { EmpleadosComponent } from './private/empleados/empleados.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './auth.guard';
+import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ClientesComponent,
-    EmpleadosComponent
+    EmpleadosComponent,
+    ClienteFormComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
