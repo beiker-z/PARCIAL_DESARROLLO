@@ -9,26 +9,28 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  user= {
-    userName:'',
+  user = {
+    userName: '',
     password: ''
   }
 
+  res;
   constructor(private security: SecurityService,
-    private router:Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onLogin(){
+  async onLogin() {
+    try {
+      this.res = await this.security.login(this.user).toPromise();
+      localStorage.setItem('token', this.res.token);
+      this.router.navigate(['clientes']);
 
-    this.security.login(this.user).subscribe(
+    } catch (error) {
+      console.error(error);
+    }
 
-      (res) => {
-        localStorage.setItem('token', res.token);
-        this.router.navigate(['clientes']);
-      }
-    )
   }
 
 }

@@ -25,7 +25,7 @@ router.post("/login",(req, res)=>{
         if(body.password === user.password){
 
             let token = jwt.sign({id: user.id},'secret',{ expiresIn:'30M'});
-            return res.status(200).json({token});
+            return res.status(200).json({message:'succefully',token});
         }
         else{
             return res.status(401).send('login invalid');
